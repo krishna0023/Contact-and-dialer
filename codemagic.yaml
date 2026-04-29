@@ -5,6 +5,11 @@ workflows:
     environment:
       java: 17
     scripts:
+      - name: Download gradle wrapper jar
+        script: |
+          mkdir -p gradle/wrapper
+          curl -o gradle/wrapper/gradle-wrapper.jar \
+            https://raw.githubusercontent.com/gradle/gradle/v8.7.0/gradle/wrapper/gradle-wrapper.jar
       - name: Set Gradle permissions
         script: chmod +x gradlew
       - name: Build debug APK
