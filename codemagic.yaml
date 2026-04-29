@@ -13,6 +13,15 @@ workflows:
           curl -L -o gradlew \
             https://raw.githubusercontent.com/gradle/gradle/v8.7.0/gradlew
           chmod +x gradlew
+          cat > gradle/wrapper/gradle-wrapper.properties << 'EOF'
+          distributionBase=GRADLE_USER_HOME
+          distributionPath=wrapper/dists
+          distributionUrl=https\://services.gradle.org/distributions/gradle-8.7-bin.zip
+          networkTimeout=10000
+          validateDistributionUrl=true
+          zipStoreBase=GRADLE_USER_HOME
+          zipStorePath=wrapper/dists
+          EOF
       - name: Build debug APK
         script: ./gradlew assembleDebug --stacktrace
     artifacts:
