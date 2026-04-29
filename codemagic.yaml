@@ -29,7 +29,6 @@ EOF
           ./gradlew assembleDebug --stacktrace
     artifacts:
       - app/build/outputs/apk/debug/*.apk
-      - MIUIDialer/app/build/outputs/apk/debug/*.apk
     publishing:
       email:
         recipients:
