@@ -1,1 +1,6 @@
-
+workflows:
+  sample-workflow:
+    name: Sample App workflow
+    triggering:
+      events:
+        - push
