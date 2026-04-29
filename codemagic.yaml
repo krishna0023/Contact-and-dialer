@@ -10,7 +10,8 @@ workflows:
           mkdir -p gradle/wrapper
           curl -L -o gradle/wrapper/gradle-wrapper.jar \
             https://raw.githubusercontent.com/gradle/gradle/v8.7.0/gradle/wrapper/gradle-wrapper.jar
-          sed -i 's/\r//' gradlew
+          curl -L -o gradlew \
+            https://raw.githubusercontent.com/gradle/gradle/v8.7.0/gradlew
           chmod +x gradlew
       - name: Build debug APK
         script: ./gradlew assembleDebug --stacktrace
