@@ -1,6 +1,9 @@
 workflows:
-  sample-workflow:
-    name: Sample App workflow
-    triggering:
-      events:
-        - push
+  android-workflow:
+    scripts:
+      - name: Get Flutter packages
+        script: flutter packages pub get
+      - name: Build Android APK
+        script: flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
